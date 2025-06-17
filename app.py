@@ -23,6 +23,12 @@ def query_model(prompt: str):
     }
     response = requests.post(API_URL, headers=HEADERS, json=payload)
     response.raise_for_status()
+
+    data = response.json()
+    generated_texts = [item.get("generated_text", "") for item in data]
+    with open("generated_text.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(generated_texts))
+
     return response.json()[0]["generated_text"]
 
 @app.route("/", methods=["GET", "POST"])
