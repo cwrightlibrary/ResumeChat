@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Summary Generator</title>
+    <style>
+        body { font-family: "SF Pro", sans-serif; margin: 2rem; }
+        form { max-width: 600px; }
+        label { display: block; margin-top: 1em; }
+        input, textarea { width: 100%; padding: 0.5em; margin-top: 0.5em; }
+        button { margin-top: 1em; padding: 0.5em 1em; }
+        .result { margin-top: 2em; background: #f0f0f0; padding: 1em; border-radius: 6px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>AI Resume Summary Generator</h1>
+    <form method="POST">
+        <label>Job Title:
+            <input type="text" name="job_title" required>
+        </label>
+        <label>Years of Experience:
+            <input type="number" name="years_experience" required>
+        </label>
+        <label>Skills (comma-separated):
+            <input type="text" name="skills" placeholder="e.g., Python, Django, AWS" required>
+        </label>
+        <button type="submit">Generate Summary</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if result %}
+        <div class="result">
+            <h2>Generated Summary:</h2>
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -192,3 +192,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Virtual environment
+.venv
+
+# macOS
+.DS_Store
+
+# Project specific
+huggingface.txt
