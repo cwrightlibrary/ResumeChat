@@ -1,0 +1,41 @@
+html,
+body {
+    margin: 0;
+    color: white;
+}
+
+section {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+header {
+    background: red;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interaction-wrapper {
+    display: flex;
+    flex-flow: row;
+    height: 80%;
+}
+
+.resume-preview {
+    flex: 1;
+    background: green;
+}
+
+.chat-widget {
+    flex: 1;
+    background: teal;
+}
+
+footer {
+    flex: 1;
+    align-items: end;
+    background: blue;
+}
