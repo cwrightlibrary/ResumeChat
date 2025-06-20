@@ -37,6 +37,7 @@ def index():
     error = None
 
     if request.method == "POST":
+        
         job_title = request.form.get("job_title")
         experience = request.form.get("years_experience")
         skills = request.form.get("skills")

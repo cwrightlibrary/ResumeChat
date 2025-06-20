@@ -1,153 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>ResumeChat</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            box-sizing: border-box
-        }
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: "Source Sans 3";
-        }
-
-        h1 {
-            font-family: "Anybody";
-            color: #222222;
-        }
-
-        #chatbox {
-            margin-left: auto;
-            margin-right: auto;
-            width: 75%;
-            margin-top: 60px;
-        }
-
-        #userInput {
-            margin-left: auto;
-            margin-right: auto;
-            width: 75%;
-            margin-top: 60px;
-            margin-bottom: 10px;
-        }
-
-        #textInput {
-            margin-right: 0;
-            padding: 5px;
-            width: 80%;
-            border: none;
-            border-radius: 5px 0px 0px 5px;
-            background-color: rgb(255, 255, 255);
-            font-size: 17px;
-        }
-
-        #textSend {
-            width: auto;
-            margin-left: 0;
-            padding: 5px;
-            background-color: #4169e1;
-            color: white;
-            border: none;
-            border-radius: 0px 5px 5px 0px;
-            font-size: 17px;
-        }
-
-        .userText {
-            color: white;
-            font-size: 17px;
-            text-align: right;
-            line-height: 30px;
-        }
-
-        .userText span {
-            background-color: #4169e1;
-            padding: 10px;
-            border-radius: 5px 5px 0px 5px;
-        }
-
-        .botText {
-            color: white;
-            font-size: 17px;
-            text-align: left;
-            line-height: 30px;
-        }
-
-        .botText span {
-            background-color: #6b6b6b;
-            padding: 10px;
-            border-radius: 5px 5px 5px 0px;
-        }
-
-        #tidbit {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 300px;
-        }
-
-        .boxed {
-            margin-left: 65%;
-            width: 24%;
-            margin-top: 60px;
-            border: 1px solid rgba(59, 59, 59, 0);
-            border-radius: 5px;
-            background-color: rgb(233, 233, 233);
-        }
-    </style>
+    <title>ResumeChat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body>
-    <div>
-        <h1 align="center"><b>ResumeChat</b></h1>
+    <div class="layout">
+        <header class="header">
+            <div></div>
+            <div class="header-title"><h1>ResumeChat</h1></div>
+            <div></div>
+        </header>
 
-        <div class="boxed">
-            <div>
-                <div id="chatbox">
-                    <p class="botText">
-                        <span>Hi!</span>
-                    </p>
-                </div>
-                <div id="userInput">
-                    <input id="textInput" type="text" name="msg" placeholder="Enter response here..." />
-                    <button id="textSend">Send</button>
-                </div>
+        <aside class="sidebar-left">
+            <h1>Pick a theme</h1>
+
+            <div class="theme-option">
+                <h3><span id="simple">Simple</span> <span id="style">Style</span></h3>
+                <label class="switch">
+                    <input type="checkbox" class="themeChoices" checked>
+                    <span class="slider round"></span>
+                </label>
             </div>
 
-            <script>
-                function getBotResponse() {
-                    var rawText = $("#textInput").val();
-                    var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
-                    $("#textInput").val("");
-                    $("#chatbox").append(userHtml);
-                    document
-                        .getElementById("userInput")
-                        .scrollIntoView({ block: "start", behavior: "smooth" });
-                    $.get("/get", { msg: rawText }).done(function (data) {
-                        var botHtml = '<p class="botText"><span>' + data + "</span></p>";
-                        $("#chatbox").append(botHtml);
-                        document
-                            .getElementById("userInput")
-                            .scrollIntoView({ block: "start", behavior: "smooth" });
-                    });
-                }
-                $("#textInput").keypress(function (e) {
-                    if (e.which == 13) {
-                        getBotResponse();
-                    }
-                });
-            </script>
-        </div>
+            <div class="theme-option">
+                <h3><span id="modern">Modern</span> <span id="refresh">Refresh</span></h3>
+                <label class="switch">
+                    <input type="checkbox" class="themeChoices">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="theme-option">
+                <h3><span id="graceful">Graceful</span> <span id="elegance">Elegance</span></h3>
+                <label class="switch">
+                    <input type="checkbox" class="themeChoices">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="theme-option">
+                <h3><span id="smooth">Smooth</span> <span id="finish">Finish</span></h3>
+                <label class="switch">
+                    <input type="checkbox" class="themeChoices">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1>Your resume</h1>
+            <div class="resume-preview">
+                <h1 id="resumeNameHeader"></h1>
+                <h2 id="resumeEmailHeader"></h2>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <h1>Chat</h1>
+
+            <div id="chatbox"></div>
+            
+            <form id="userInput">
+                <input id="textInput" type="text" name="msg" placeholder="Type your response..." required/>
+                <button id="textSend" type="submit">Send</button>
+            </form>
+        </aside>
+
+        <footer class="footer">
+            <p>© 2025 Chris Wright</p>
+        </footer>
     </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>
