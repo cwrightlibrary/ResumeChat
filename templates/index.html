@@ -27,7 +27,7 @@
             <div class="theme-option">
                 <h3><span id="simple">Simple</span> <span id="style">Style</span></h3>
                 <label class="switch">
-                    <input type="checkbox" class="themeChoices" checked>
+                    <input type="checkbox" class="themeChoices" id="simpleStyle" checked>
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -35,7 +35,7 @@
             <div class="theme-option">
                 <h3><span id="modern">Modern</span> <span id="refresh">Refresh</span></h3>
                 <label class="switch">
-                    <input type="checkbox" class="themeChoices">
+                    <input type="checkbox" class="themeChoices" id="modernRefresh">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -43,7 +43,7 @@
             <div class="theme-option">
                 <h3><span id="graceful">Graceful</span> <span id="elegance">Elegance</span></h3>
                 <label class="switch">
-                    <input type="checkbox" class="themeChoices">
+                    <input type="checkbox" class="themeChoices" id="gracefulElegance">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -51,29 +51,75 @@
             <div class="theme-option">
                 <h3><span id="smooth">Smooth</span> <span id="finish">Finish</span></h3>
                 <label class="switch">
-                    <input type="checkbox" class="themeChoices">
+                    <input type="checkbox" class="themeChoices" id="smoothFinish">
                     <span class="slider round"></span>
                 </label>
             </div>
         </aside>
 
         <main class="main-content">
-            <h1>Your resume</h1>
             <div class="resume-preview">
-                <h1 id="resumeNameHeader"></h1>
-                <h2 id="resumeEmailHeader"></h2>
+                <div id="resumeHeaderSection">
+                    <h1 id="resumeNameHeader">Jane Doe</h1>
+                    <!-- TODO: Wrap the email along with the phone/city,st in a div to space them evenly -->
+                    <p id="resumeEmailHeader">your.address@email.com</p>
+                </div>
+
+                <div id="resumeSummarySection">
+                    <h2 id="resumeSummaryTitle">Summary</h2>
+                    <p id="resumeSummaryContent">Detail-oriented and knowledgeable Librarian with over 5 years of experience supporting diverse patron needs in public and academic libraries. Skilled in reference services, information literacy instruction, and collection development.</p>
+                </div>
+
+                <div id="resumeExperienceSection">
+                    <div id="job1">
+                        <h2 id="resumeExperienceTitle">Experience</h2>
+
+                        <h3 id="resumeExperienceJob">Librarian, Richland Library</h3>
+                        <p id="resumeExperienceDates">June 2020 - August 2024</p>
+
+                        <p id="resumeExperienceContent">As a Librarian at Richland Library since June 2020, I have provided inclusive, customer-focused services to a diverse community, assisting patrons with reference inquiries, reader’s advisory, and access to both print and digital resources. I’ve designed and facilitated engaging programs for all age groups, including literacy workshops, author events, and STEAM-based activities. In collaboration with community partners and internal teams, I’ve supported outreach initiatives and educational events aligned with the library’s mission of equity and access.</p>
+                    </div>
+
+                    <div id="job2">
+                        <h3 id="resumeExperienceJob">Food Service Worker, Taco Bell</h3>
+                        <p id="resumeExperienceDates">June 2020 - August 2024</p>
+
+                        <p id="resumeExperienceContent">As a Food Service Worker at Taco Bell since June 2020, I have provided fast, friendly service in a high-volume environment, ensuring accurate order fulfillment and a positive customer experience. I’ve prepared and assembled food items according to company standards while maintaining cleanliness and safety in all work areas. In collaboration with team members and shift leaders, I’ve supported smooth daily operations and contributed to a welcoming and efficient service environment aligned with Taco Bell’s customer-first mission.</p>
+                    </div>
+                </div>
+
+                <div id="resumeEducationSection">
+                    <h2 id="resumeEducationTitle">Education</h2>
+
+                    <h3 id="resumeEducationSchool">University of South Carolina</h3>
+                    <p id="resumeEducationDates">March 2015 - October 2019</p>
+
+                    <p id="resumeEducationContent">While earning my Master of Library and Information Science at the University of South Carolina, I developed a strong foundation in information organization, reference services, and community-centered librarianship.</p>
+                </div>
+
+                <div id="resumeSkillsSection">
+                    <h2 id="resumeSkillsTitle">Skills</h2>
+
+                    <ul id="resumeSkillsContent">
+                        <li>Excellent Customer Service</li>
+                        <li>Office365</li>
+                        <li>Polaris Leap</li>
+                        <li>ALA Certification</li>
+                    </ul>
+                </div>
+                
             </div>
         </main>
 
         <aside class="sidebar-right">
-            <h1>Chat</h1>
-
-            <div id="chatbox"></div>
-            
-            <form id="userInput">
-                <input id="textInput" type="text" name="msg" placeholder="Type your response..." required/>
-                <button id="textSend" type="submit">Send</button>
-            </form>
+            <div id="chatWrapper">
+                <div id="chatbox"></div>
+                
+                <form id="userInput">
+                    <input id="textInput" type="text" name="msg" placeholder="Type your response..." required/>
+                    <button id="textSend" type="submit">Send</button>
+                </form>
+            </div>
         </aside>
 
         <footer class="footer">

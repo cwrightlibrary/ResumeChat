@@ -1,3 +1,4 @@
+/* Make the spacing work when resizing, especially keeping the aspect ratio of the resume preview document */
 * {
     margin: 0;
     padding: 0;
@@ -130,20 +131,97 @@ input:checked + .slider:before {
 .main-content {
     grid-area: main;
     padding: 1rem;
-    background-color: #fff;
+    background-color: #b1b1b1;
+}
+
+.resume-preview {
+    margin: auto;
+    margin-top: 10%;
+    padding: 2em;
+    background-color: rgb(255, 255, 255);
+    aspect-ratio: 1 / 1.414;
+    width: 35%;
+}
+
+#resumeHeaderSection {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(122, 122, 122);
+}
+
+#resumeNameHeader {
+    font-size: 1.5em;
+    text-align: center;
+    font-family: "Manrope";
+}
+
+#resumeEmailHeader {
+    font-size: 0.4em;
+    text-align: center;
+    font-family: "Inter";
+}
+
+#resumeSummarySection, #resumeExperienceSection, #resumeEducationSection, #resumeSkillsSection {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(122, 122, 122);
+}
+
+#resumeSummaryTitle, #resumeExperienceTitle, #resumeEducationTitle, #resumeSkillsTitle {
+    padding-left: 20px;
+    font-size: 0.8em;
+    font-family: "Manrope";
+}
+
+#resumeSummaryTitle, #resumeExperienceTitle, #resumeEducationTitle, #resumeSkillsTitle {
+    padding-top: 5px;
+}
+
+#resumeExperienceJob, #resumeEducationSchool {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 0.6em;
+    font-family: "Inter";
+}
+
+#resumeExperienceDates, #resumeEducationDates {
+    padding-left: 10px;
+    font-size: 0.5em;
+    font-family: "Inter";
+}
+
+#resumeSummaryContent, #resumeExperienceContent, #resumeEducationContent {
+    text-align: justify;
+    padding-top: 2px;
+    padding-left: 10px;
+    text-indent: 10px;
+    font-size: 0.4em;
+    font-family: "Inter";
+}
+
+#resumeSkillsContent li {
+    position: relative;
+    padding-top: 2px;
+    left: 20px;
+    font-size: 0.4em;
+    font-family: "Inter";
 }
 
 .sidebar-right {
     grid-area: sidebar-right;
-    background-color: #e0e0e0;
+    background-color: #f1f1f1;
     padding: 1rem;
+}
+
+#chatWrapper {
+    background: rgb(88, 88, 88);
+    padding: 5px;
+    border-radius: 10px;
 }
 
 #chatbox {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 500px;
+    height: 550px;
     margin-top: 60px;
     position: relative;
     overflow-y: auto;
@@ -152,7 +230,7 @@ input:checked + .slider:before {
 #userInput {
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 95%;
     margin-top: 60px;
     margin-bottom: 10px;
     position: relative;
@@ -162,7 +240,7 @@ input:checked + .slider:before {
 #textInput {
     margin-right: 0;
     padding: 10px;
-    width: 70%;
+    width: 80%;
     border: none;
     border-radius: 5px 0px 0px 5px;
 }
@@ -200,7 +278,7 @@ input:checked + .slider:before {
 }
 
 .botText span {
-    background-color: #6b6b6b;
+    background-color: #333333;
     padding: 10px;
     border-radius: 5px 5px 5px 0px;
 }
